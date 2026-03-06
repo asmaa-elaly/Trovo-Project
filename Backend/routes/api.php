@@ -32,17 +32,8 @@ Route::middleware('auth:sanctum')->group(function ()
     // عرض بيانات الاستخدام للمستخدم
     Route::get('/phone-usage', [PhoneUsageController::class, 'index']);
 
-    // الحصول على بيانات المستخدم الحالي
-    Route::get('/user', function (Request $request) {
-        return $request->user();
-    });
-
-
-
-
-    // تسجيل الخروج
+    Route::get('/user' , [AuthController::class , 'getUser']);
     Route::post('/logout', [PhoneUsageController::class, 'logout']);
-
 
 
 

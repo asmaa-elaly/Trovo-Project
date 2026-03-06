@@ -34,6 +34,16 @@ class AuthController extends Controller
         ], 201);
     }
 
+   public function getUser(Request $request)
+{
+$user = $request->user();
+
+
+return response()->json([
+    'data' => $user,
+], 200);
+}
+
     // 2. تسجيل دخول (للمستخدمين الحاليين)
     public function login(Request $request)
     {
@@ -42,6 +52,7 @@ class AuthController extends Controller
         }
 
         $user = User::where('email', $request['email'])->firstOrFail();
+
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([

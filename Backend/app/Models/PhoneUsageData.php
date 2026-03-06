@@ -22,11 +22,11 @@ class PhoneUsageData extends Model
         'weekend_usage_hours',
         'breaks_between_sessions',
         'collected_at'
-    ];
+        ];
 
     protected $casts = [
         'collected_at' => 'datetime',
-    ];
+        ];
 
     public function user()
     {
